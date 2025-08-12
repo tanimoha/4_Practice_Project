@@ -6,10 +6,6 @@ jobs:
     steps:
         - name: get code
           uses: actions/checkout@v3
-        - name: Install NodeJs
-          uses: actions/setup-node@v4
-          with:
-            node-version: 18
         - name: Install Dependencies
           uses: npm ci
         - name: Lint
@@ -19,23 +15,15 @@ jobs:
     steps:
         - name: get code
           uses: actions/checkout@v3
-        - name: Install NodeJs
-          uses: actions/setup-node@v4
-          with:
-            node-version: 18
-        - name: Install Dependencies
+        - name: Install Dependencies 
           uses: npm ci
         - name: Test Code
-          uses: npm test
+          uses: npm run test
   deploy:
     runs-on: ubuntu-latest
     steps:
         - name: get code
           uses: actions/checkout@v3
-        - name: Install NodeJs
-          uses: actions/setup-node@v4
-          with:
-            node-version: 18
         - name: Install Dependencies
           uses: npm ci 
         - name: Build code
